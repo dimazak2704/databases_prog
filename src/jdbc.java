@@ -8,6 +8,7 @@ public class jdbc {
 
     jdbc(String db, String account, String password) throws SQLException {
         this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db, account, password);
+        this.statement = this.connection.createStatement();
         System.out.println("SUCCESSFULLY");
     }
 
@@ -20,4 +21,18 @@ public class jdbc {
                     while (resultSet.next()) {
                         System.out.println(resultSet.getString("username"));
                     }*/
+
+    public void create(String database, String tablename) throws SQLException {
+    int result = this.statement.executeUpdate("create table "+ tablename+ "(id int)");
+        System.out.println(result);
+    }
+
+    public void delete(String database, String delete, String name) throws SQLException {
+        if (delete=="table") {
+            int result = this.statement.executeUpdate("drop table " + name);
+        }
+        else{
+            int result = this.statement.executeUpdate("delete from "+ name);
+        }
+    }
 }

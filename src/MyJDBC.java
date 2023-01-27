@@ -102,6 +102,7 @@ public class MyJDBC {
                 try {
                     jdbc jdbc = new jdbc(database.getText(), accText.getText(), String.valueOf(passwordField.getPassword()));
                     setCoon(true);
+
                     acc.setVisible(false);
                     accText.setVisible(false);
                     pass.setVisible(false);
@@ -111,6 +112,7 @@ public class MyJDBC {
                     remember.setVisible(false);
                     confirm.setVisible(false);
 
+                    System.out.println(getcon());
 
                 }
                 catch (SQLException exception){
@@ -133,10 +135,16 @@ public class MyJDBC {
                     }
 
 
+
             }
         });
 
+        while(getcon()!=true){
 
+        }
+        if(getcon()==true){
+            swing.next(frame);
+        }
 
 
 
