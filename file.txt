@@ -1,0 +1,3 @@
+database:transport
+account:root
+password:passWord2704
