@@ -10,16 +10,18 @@ public class swing {
     static int height = screenSize.height;
     static Font font = new Font("Verdana", Font.PLAIN, 40);
 
-    public static String db="test", acc="root",pass="passWord2704";
+    //public static String db="test", acc="root",pass="passWord2704";
+    public static String db, test, acc;
     static jdbc jdbc;
 
-    {
+    /*static {
         try {
             jdbc = new jdbc(db,acc,pass);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
+
 
     public static void next(JFrame frame){
 
@@ -53,8 +55,10 @@ public class swing {
         create.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+
                 try {
-                    jdbc.create("test","prog");
+                    jdbc.create("prog");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -74,7 +78,7 @@ public class swing {
                 comboBox.setBounds(200,200,100,100);
                 frame.add(comboBox);
                 try {
-                    jdbc.delete("test", "table", "prog");
+                    jdbc.delete("table", "prog");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }

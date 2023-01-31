@@ -1,3 +1,3 @@
-database:transport
+database:test
 account:root
 password:passWord2704
